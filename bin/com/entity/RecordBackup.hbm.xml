@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-12-28 20:12:31 by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="src.com.entity.RecordBackup" table="recordBackup" catalog="ooad" optimistic-lock="version">
+        <id name="recordBackupId" type="java.lang.Integer">
+            <column name="recordBackupID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="backup" class="src.com.entity.Backup" fetch="select">
+            <column name="backupID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="employee" class="src.com.entity.Employee" fetch="select">
+            <column name="employeeID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="equipment" class="src.com.entity.Equipment" fetch="select">
+            <column name="equipmentID" not-null="true" />
+        </many-to-one>
+        <property name="dateBorrowed" type="date">
+            <column name="dateBorrowed" length="10" not-null="true" />
+        </property>
+        <property name="dateReturned" type="date">
+            <column name="dateReturned" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

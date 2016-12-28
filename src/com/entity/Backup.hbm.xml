@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2016-12-28 20:12:31 by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="src.com.entity.Backup" table="backup" catalog="ooad" optimistic-lock="version">
+        <id name="backupId" type="java.lang.Integer">
+            <column name="backupID" />
+            <generator class="identity" />
+        </id>
+        <property name="backupName" type="string">
+            <column name="backupName" not-null="true" />
+        </property>
+        <property name="datePurchased" type="date">
+            <column name="datePurchased" length="10" not-null="true" />
+        </property>
+        <property name="dateDiscarded" type="date">
+            <column name="dateDiscarded" length="10" />
+        </property>
+        <property name="isInstalled" type="byte">
+            <column name="isInstalled" not-null="true" />
+        </property>
+        <set name="recordBackups" table="recordBackup" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="backupID" not-null="true" />
+            </key>
+            <one-to-many class="src.com.entity.RecordBackup" />
+        </set>
+    </class>
+</hibernate-mapping>
