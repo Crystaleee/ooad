@@ -5,9 +5,16 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.password">123456</property>
+        <property name="hibernate.connection.password">TOOLSmysql123456</property>
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/ooad</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <mapping package="com.entity"></mapping>
+        <mapping class="com.entity.Employee"></mapping>
+        <mapping class="com.entity.Equipment"></mapping>
+        <mapping class="com.entity.Backup"></mapping>
+        <mapping class="com.entity.RecordEquipment"></mapping>
+        <mapping class="com.entity.RecordBackup"></mapping>
     </session-factory>
 </hibernate-configuration>
